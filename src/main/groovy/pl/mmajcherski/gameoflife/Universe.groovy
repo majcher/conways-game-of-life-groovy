@@ -22,7 +22,7 @@ class Universe {
 		cells = cells.collectEntries { cell -> [ (cell) : cell.position.neighbours() ] }
 			.collectEntries { cell, neighbours -> [ (cell) : neighbours.findAll( liveNeighbourPredicate ) ] }
 			.collectEntries { cell, liveNeighbours -> [(cell) : liveNeighbours.size()] }
-			.collect { cell, liveNeighboursSize -> cell.turnIntoNewState(liveNeighboursSize) }
+			.collect { cell, liveNeighboursSize -> cell.nextCellStateForLiveNeighboursCount(liveNeighboursSize) }
 	}
 	
 }

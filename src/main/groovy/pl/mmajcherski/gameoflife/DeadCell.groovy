@@ -15,8 +15,8 @@ class DeadCell extends Cell {
 		new DeadCell(Position.withCoordiantes(x, y))
 	}
 
-	def Cell turnIntoNewState(int liveNeighboursSize) {
-		if (liveNeighboursSize == 3) {
+	def Cell nextCellStateForLiveNeighboursCount(int liveNeighboursCount) {
+		if (liveNeighboursCount == 3) {
 			return new LiveCell(this)
 		}
 	}

@@ -15,8 +15,8 @@ class LiveCell extends Cell {
 		new LiveCell(Position.withCoordiantes(x, y))
 	}
 
-	def Cell turnIntoNewState(int liveNeighboursSize) {
-		if (liveNeighboursSize == 2 || liveNeighboursSize == 3) {
+	def Cell nextCellStateForLiveNeighboursCount(int liveNeighboursCount) {
+		if (liveNeighboursCount == 2 || liveNeighboursCount == 3) {
 			return this;
 		}
 		

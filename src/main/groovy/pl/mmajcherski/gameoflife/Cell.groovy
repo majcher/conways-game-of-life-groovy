@@ -13,6 +13,6 @@ abstract class Cell {
 		this.position = position;
 	}
 	
-	abstract def Cell turnIntoNewState(int liveNeighboursSize)
+	abstract def Cell nextCellStateForLiveNeighboursCount(int liveNeighboursCount)
 
 }
