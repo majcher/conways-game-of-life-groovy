@@ -19,13 +19,10 @@ class Universe {
 			cellAt(neighbour) instanceof LiveCell
 		}
 		
-		def newCells = cells.collect { cell -> cell.position }
-			.collectEntries { position -> [ (position) : position.neighbours() ] }
-			.collectEntries { position, neighbours -> [ (position) : neighbours.findAll( liveNeighbourPredicate ) ] }
-			.collectEntries { position, liveNeighbours -> [(position) : liveNeighbours.size()] }
-			.collect { position, liveNeighboursSize -> cellAt(position).turnIntoNewState(liveNeighboursSize) }
-		
-		cells = newCells
+		cells = cells.collectEntries { cell -> [ (cell) : cell.position.neighbours() ] }
+			.collectEntries { cell, neighbours -> [ (cell) : neighbours.findAll( liveNeighbourPredicate ) ] }
+			.collectEntries { cell, liveNeighbours -> [(cell) : liveNeighbours.size()] }
+			.collect { cell, liveNeighboursSize -> cell.turnIntoNewState(liveNeighboursSize) }
 	}
 	
 }
