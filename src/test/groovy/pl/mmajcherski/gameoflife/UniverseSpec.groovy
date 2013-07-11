@@ -72,5 +72,26 @@ class UniverseSpec extends spock.lang.Specification {
 				[LiveCell.at(0, 1), LiveCell.at(1, 1), LiveCell.at(1, 0), LiveCell.at(1,-1), LiveCell.at(0,-1)]
 			]
 	}
+	
+	def "Dead cell with exactly three live neighbours becomes alive"() {
+		given: "a universe with dead cell at (0, 0)"
+		def universe = new Universe()
+		universe.add(DeadCell.at(0, 0))
+		
+		and: "three live neighbours"
+		neighbours.each { n -> universe.add(n) }
+		
+		when: "times tick"
+		universe.tick()
+		
+		then: "cell becomes alive"
+		universe.cellAt(Position.withCoordiantes(0, 0)) instanceof LiveCell
+		
+		where:
+		neighbours << [
+				[LiveCell.at(0, 1), LiveCell.at(1, 1), LiveCell.at(1, 0)],
+				[LiveCell.at(1, 0), LiveCell.at(1,-1), LiveCell.at(0,-1)]
+			]
+	}
 
 }
