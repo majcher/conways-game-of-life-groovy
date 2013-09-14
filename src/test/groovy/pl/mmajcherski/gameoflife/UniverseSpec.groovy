@@ -2,7 +2,7 @@ package pl.mmajcherski.gameoflife
 
 import spock.lang.*
 
-class UniverseSpec extends spock.lang.Specification {
+class UniverseSpec extends Specification {
 	
 	def "Live cell with no neighbours should die after tick"() {
 		given: "a universe with one live cell"

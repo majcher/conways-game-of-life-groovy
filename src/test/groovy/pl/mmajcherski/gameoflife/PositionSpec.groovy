@@ -2,7 +2,7 @@ package pl.mmajcherski.gameoflife
 
 import spock.lang.*
 
-class PositionSpec extends spock.lang.Specification {
+class PositionSpec extends Specification {
 	
 	def "Position in 2-dimensional space should have 8 neighbours"() {
 		given: "position in 2-dimensional space"
