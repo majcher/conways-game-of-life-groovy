@@ -1,10 +1,8 @@
 package pl.mmajcherski.gameoflife
 
-import javax.annotation.Generated;
-
-import groovy.transform.EqualsAndHashCode;
-import groovy.transform.Immutable;
-import groovy.transform.ToString;
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.Immutable
+import groovy.transform.ToString
 
 @Immutable
 @EqualsAndHashCode
